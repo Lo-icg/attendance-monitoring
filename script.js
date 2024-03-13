@@ -37,6 +37,11 @@ function showForm(boxId) {
   // Store the section of the clicked box
   clickedSection = document.getElementById(boxId).querySelector('p');
 
+
+
+
+  
+
   // Assign the id to the <p> element
   var pElement = document.createElement('p');
   pElement.id = 'person_' + boxId;
@@ -89,8 +94,11 @@ form.addEventListener('submit', function(event) {
     // Get the current time
   var currentTime = getCurrentTime();
 
-    //pElement.textContent = fullname + "<br>" + section;
     pElement.innerHTML = fullname + "<br>" + section + "<br>" + studnum + "<br>" + subcode + "<br>" + currentTime;
+    
+
+
+
 
      // Reset the form fields
   document.getElementById('fullname').value = '';
@@ -155,8 +163,10 @@ function showRecords() {
 
       // Add the data to the table
       var row = document.createElement('tr');
-      row.innerHTML = `<td>${i +"."}</td><td>${fullname}</td><td>${section}</td><td>${studentnum}</td><td>${subcode}</td><td>${time}</td>`;
+      row.innerHTML = `<td>${i}</td><td>${fullname}</td><td>${section}</td><td>${studentnum}</td><td>${subcode}</td><td>${time}</td>`;
       tbody.appendChild(row);
+
+      
     }
   }
 }
@@ -179,10 +189,10 @@ function printStudentData() {
   var printWindow = window.open('', '_blank');
   printWindow.document.open();
   printWindow.document.write('<html><head><title>Student Data</title></head><body>');
-  printWindow.document.write('<h1>Student Data</h1>');
+  printWindow.document.write('<h1>Seat Plan</h1>');
   printWindow.document.write('<table border="1">');
   printWindow.document.write('<thead>');
-  printWindow.document.write('<tr><th>No</th><th>Full Name</th><th>Section</th><th>Student Number</th><th>Subject Code</th><th>Time Submitted</th></tr>');
+  printWindow.document.write('<tr><th>No.</th><th>Full Name</th><th>Section</th><th>Student Number</th><th>Subject Code</th><th>Time Submitted</th></tr>');
   printWindow.document.write('</thead>');
   printWindow.document.write('<tbody>');
   for (var i = 1; i <= 60; i++) {
@@ -197,7 +207,7 @@ function printStudentData() {
     var time = content[4] ? content[4] : '';
 
     printWindow.document.write('<tr>');
-    printWindow.document.write('<td>' + i + '.</td>');
+    printWindow.document.write('<td>' + i + '</td>');
     printWindow.document.write('<td>' + fullname + '</td>');
     printWindow.document.write('<td>' + section + '</td>');
     printWindow.document.write('<td>' + studentnum + '</td>');
@@ -214,3 +224,13 @@ function printStudentData() {
 
 // Update the event listener to use the new function
 document.querySelector('.download').addEventListener('click', printStudentData);
+
+// Get all input elements
+var inputs = document.querySelectorAll('input[type="text"]');
+
+// Add input event listener to each input element
+inputs.forEach(function(input) {
+  input.addEventListener('input', function() {
+    this.value = this.value.toUpperCase();
+  });
+});
