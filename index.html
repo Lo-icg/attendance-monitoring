@@ -1,57 +1,32 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-
-
     </head>
 
     <body>
         <!--HEADER-->
         <div class="top-bar">
-            <h1>Attendance and Sit Plan Monitoring</h1>
+            <h1>Attendance and Seat Plan Monitoring</h1>
         </div>
         <!--HEADER-->
 
         <br><br><br>
 
-         <!--My form-->
-        <div id="formContainer" style="display:none;">
-            <form id="studentForm" onsubmit="return validateForm()">
-                <!-- form fields here -->
-                <label for="fullname">Fullname:</label><br>
-                <input type="text" id="fullname" name="fullname"><br>
-
-                <label for="section">Section:</label><br>
-                <input type="text" id="section" name="section"><br>
-
-                <label for="studnum">Student Number:</label><br>
-                <input type="text" id="studnum" name="studnum"><br
-
-                <label for="subcode">Subject Code:</label><br>
-                <input type="text" id="subcode" name="subcode"><br>
-
-                <input type="submit" value="Submit">
-                <input type="button" value="Cancel" onclick="hideForm()">
-            </form>
-        </div>
-
+        <!--Two button above-->
         <div class="button-container">
-            <button onclick="showRecords()" id="student-record">View Student Records</button>
-            <button class="download" id="student-record">Download Student Data</button>
+            <button onclick="showRecords()" id="student-record">Student Records</button>
+            <button class="download" id="student-record">Download Data</button>
         </div>
-        
 
-
+        <!--This is the table for student records that will show when (View Student Records) button is clicked-->
         <div id="recordsTable" style="display:none;">
             <table id="records">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>No.</th>
                         <th>Full Name</th>
                         <th>Section</th>
                         <th>Student Number</th>
@@ -64,8 +39,8 @@
                 </tbody>
             </table>
         </div>
-
-
+        
+        <!--Seat Plan of Students-->
         <div class="row1">
             <div id="1" class="box" onclick="showForm(this.id)"><p></p></div>
             <div id="2" class="box" onclick="showForm(this.id)"><p></p></div>
@@ -78,8 +53,6 @@
             <div id="9" class="box" onclick="showForm(this.id)"><p></p></div>
             <div id="10" class="box" onclick="showForm(this.id)"><p></p></div>
         </div>
-
-      
 
         <div class="row2">
             <div id="11" class="box" onclick="showForm(this.id)"><p></p></div>
@@ -149,11 +122,32 @@
             <div id="59" class="box" onclick="showForm(this.id)"><p></p></div>
             <div id="60" class="box" onclick="showForm(this.id)"><p></p></div>
         </div>
+        <!--End of Seat Plan-->
 
-          <!-- Add a new row for the download button -->
+         <!--This the form that will show when user click on a seat-->
+         <div id="formContainer" style="display:none;">
+            <form id="studentForm" onsubmit="return validateForm()">
+
+                <label for="fullname">Fullname (eg. <span style="font-size: 13px;">CHIONG JORIZ)</span></label><br>
+                <input type="text" id="fullname" name="fullname"><br>
+
+                <label for="section">Section:</label><br>
+                <input type="text" id="section" name="section"><br>
+
+                <label for="studnum">Student Number:</label><br>
+                <input type="text" id="studnum" name="studnum"><br
+
+                <label for="subcode">Subject Code:</label><br>
+                <input type="text" id="subcode" name="subcode"><br>
+
+                <div class="note">NOTE: This action cannot be undone! Please double-check before submitting.</div><br>
+
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel" onclick="hideForm()">
+
+            </form>
+        </div>
           
-
         <script src="script.js"></script>
-
     </body>
 </html>
