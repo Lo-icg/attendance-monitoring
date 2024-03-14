@@ -147,6 +147,19 @@ body {
 }
 
 
+#studentForm input[type="submit"] {
+    background-color: #fd6f6f;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100%; /* Make the button fill its container */
+}
+
+#studentForm input[type="submit"]:hover {
+    background-color: whitesmoke;
+    transition: background-color 0.5s;
+}
+
 
 
 #studentForm input[type="text"],
