@@ -1,4 +1,55 @@
-  
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDYTDG-ME3rTzsYYYV3R_IIdOwXiPkIGek",
+  authDomain: "attendance-3b8a3.firebaseapp.com",
+  databaseURL: "https://attendance-3b8a3-default-rtdb.firebaseio.com",
+  projectId: "attendance-3b8a3",
+  storageBucket: "attendance-3b8a3.appspot.com",
+  messagingSenderId: "62516432895",
+  appId: "1:62516432895:web:0a011253441dd18bff61ca"
+};
+
+//initialize firebase
+firebase.initializeApp(firebaseConfig)
+//reference your database
+const attendanceForm = firebase.database().ref('studentForm');
+
+
+document.getElementById("studentForm").addEventListener("submit", submitForm);
+
+function submitForm(e) {
+  e.preventDefault();
+
+  var fullname = getElementVal("fullname");
+  var section = getElementVal("section");
+  var studnum = getElementVal("studnum");
+  var subcode = getElementVal("subcode");
+
+  saveMessages(fullname, section, studnum, section);
+  // enable alert
+  document.querySelector('.submit').style.display = 'block';
+
+}
+
+
+const saveMessages = (fullname, section, studentnum, subcode) => {
+  var attendance_form = attendanceForm.push();
+
+  attendance_form.set({
+    fullname: fullname,
+    section: section,
+    studentnum: studentnum,
+    section: section,
+  });
+
+};
+
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+}
+
+
 var clickedBoxId; // variable to store the ID of the clicked box
 var clickedSection; // variable to store the section of the clicked box
 
@@ -234,3 +285,6 @@ inputs.forEach(function(input) {
     this.value = this.value.toUpperCase();
   });
 });
+
+
+
