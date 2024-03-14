@@ -25,7 +25,7 @@ function submitForm(e) {
   var studnum = getElementVal("studnum");
   var subcode = getElementVal("subcode");
 
-  saveMessages(fullname, section, studnum, section, subcode);
+  saveMessages(fullname, section, studnum, subcode);
   // enable alert
   document.querySelector('.submit').style.display = 'block';
 
