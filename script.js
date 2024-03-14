@@ -25,7 +25,7 @@ function submitForm(e) {
   var studnum = getElementVal("studnum");
   var subcode = getElementVal("subcode");
 
-  saveMessages(fullname, section, studnum, section);
+  saveMessages(fullname, section, studnum, section, subcode);
   // enable alert
   document.querySelector('.submit').style.display = 'block';
 
@@ -39,7 +39,7 @@ const saveMessages = (fullname, section, studentnum, subcode) => {
     fullname: fullname,
     section: section,
     studentnum: studentnum,
-    section: section,
+    subcode: subcode,
   });
 
 };
